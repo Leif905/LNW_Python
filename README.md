@@ -21,3 +21,6 @@ Fenster kann man über einen Button zum zweiten Fenster gelangen. Weiterhin soll
 sind. Im ersten Fenster gibt es zusätzlich einen Button Beenden und im zweiten Fenster die beiden Buttons
 Abbrechen und Speichern. 
 Anbindung an eine PostgreSQL-Datenbank und einen Flask-Server.
+
+
+https://www.youtube.com/watch?v=EAokwpPMVdc&t=327s&ab_channel=SsaliJonathan
