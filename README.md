@@ -23,4 +23,16 @@ Abbrechen und Speichern.
 Anbindung an eine PostgreSQL-Datenbank und einen Flask-Server.
 
 
+Genutzte Software:
+Visual Studio Code
+https://code.visualstudio.com/
+PostGreSQL
+https://www.postgresql.org/
+Insomnia API Client
+https://insomnia.rest/
+
+YouTube Tutorials:
+Ssali Jonathan: Build a REST API with Flask, Marshmallow and PostgreSQL
 https://www.youtube.com/watch?v=EAokwpPMVdc&t=327s&ab_channel=SsaliJonathan
+Lumary: Flask app with PostgreSQL
+https://www.youtube.com/watch?v=XZ_gAWdGzZk&ab_channel=Lumary
