@@ -30,6 +30,8 @@ PostGreSQL
 https://www.postgresql.org/
 Insomnia API Client
 https://insomnia.rest/
+Software Ideas Modeler
+https://www.softwareideas.net/
 
 YouTube Tutorials:
 Ssali Jonathan: Build a REST API with Flask, Marshmallow and PostgreSQL
