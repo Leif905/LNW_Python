@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/fuckit'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/userdata'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
 
+# Klasse UserData für die Nutzerdaten
 # id
 # firstname
 # lastname
@@ -55,19 +56,21 @@ class UserDataSchema(Schema):
 def get_all_userdata():
     userdata=UserData.get_all()
 
-    serializer=UserDataSchema()
+    serializer=UserDataSchema(many=True)
 
     data=serializer.dump(userdata)
 
     return jsonify(
-        
+        data
     )
 
 
 
 @app.route('/userdata', methods=['POST'])
 def create_userdata():
-    pass
+    data=request.get_json()
+
+    new_userdata=UserData()
 
 @app.route('/userdata/<int:id>', methods=['GET'])
 def get_userdata(id):
