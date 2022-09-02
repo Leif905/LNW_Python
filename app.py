@@ -1,11 +1,9 @@
-from crypt import methods
-import PySimpleGUI as sg
-from flask import Flask, render_template, request, json, jsonify
+from flask import Flask, json,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
-from marshmallow import Schema,fields
-app = Flask(__name__)
+from marshmallow import Schema, fields
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/userdata'
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/fuckit'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
