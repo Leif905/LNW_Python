@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="13.40" multi-file="no" uid="simpa32150a8d7954f9f8f060b4b4112857c">
+  <meta>
+    <name>LNW_Python</name>
+    <authors>Leif Maser</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="erd-entity" type="Entity" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>3</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="group" type="Group" />
+        <value>99</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-entity" type="Entity" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>17</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.Other.EntityRelationshipDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Erd.ErdEntityAttribute</type>
+        <value>5</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>22</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-83018133dd16497182a098f12644edd8" name="" task-id-sequence="0">
+    <persons>
+      <person id="">
+        <first-name>Leif</first-name>
+        <last-name>Maser</last-name>
+        <role />
+        <e-mail>Leif.Maser@vivai.de</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-3c86c64801a543bd977f3cd3d5ca10ee" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+      <type-set file="UmlTypes.xml" />
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <type id="void" tid="" name="void" description="" />
+      <type id="fields.firstname" tid="" name="fields.firstname" description="" />
+      <type id="firstname" tid="" name="firstname" description="" />
+      <type id="fields.integer" tid="" name="fields.integer" description="" />
+      <type id="fields.city" tid="" name="fields.city" description="" />
+      <type id="userage" tid="" name="userage" description="" />
+      <type id="fields.bdate" tid="" name="fields.bdate" description="" />
+      <type id="lastname" tid="" name="lastname" description="" />
+      <type id="string" tid="" name="string" description="" />
+      <type id="fields.lastname" tid="" name="fields.lastname" description="" />
+      <type id="fields.street" tid="" name="fields.street" description="" />
+    </custom-types>
+  </types>
+  <items />
+  <models>
+    <model id="p3c360f3d7c7c4b01a48c324946722619_396313431" name="Model1" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>09/02/2022 09:13:01</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="entity-relationship" id="pd1a3db1c6e3d4870939f4cbb25e1b1db_927426299" name="EntityRelationshipDiagram1" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>09/02/2022 09:13:01</creation-date>
+          <change-date>09/02/2022 09:13:06</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="f55990e894ca43eca96b68c1572e1cb5" cid="ENT001" type="erd-entity" name="User" style-class="" change-tracking-state="added" creator="" creation-date="09/02/2022 09:13:06">
+            <entity description="" />
+            <attributes>
+              <attribute uid="abde502b141304234a4cdb94c4d3a1e71797" cid="EA001" name="uuid" type="" type-id="" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false" creation-date="09/02/2022 09:13:38" />
+              <attribute uid="a1a6402a3e7204904bb05637ded9843eb192" cid="EA002" name="string" type="firstname" type-id="firstname" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value=":  NOT NULL" auto-increment="false" creation-date="09/02/2022 09:13:48" />
+              <attribute uid="a50500c318491462794d0171e62a18a7c787" cid="EA003" name="string" type="lastname" type-id="lastname" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value=":  NOT NULL" auto-increment="false" creation-date="09/02/2022 09:14:33" />
+              <attribute uid="a8b43cc7d92734316bb62c6e23130504d623" cid="EA004" name="string" type="userage" type-id="userage" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value=":  NOT NULL" auto-increment="false" creation-date="09/02/2022 09:14:45" />
+            </attributes>
+            <indexes />
+          </item>
+        </abstract-items>
+        <layer id="31106e5ef7d44491ae3032f3b6b13165" name="Default" visible="true" enabled="true" locked="false">
+          <item id="f55990e894ca43eca96b68c1572e1cb5" iid="f8e111c46a7148088b6d7c86a344298e" show-fields="true" creation-date="09/02/2022 09:13:06" order-index="0" type="entity">
+            <layout ax="129" ay="93" awidth="268" aheight="160" x="129" y="93" width="140" height="160" />
+            <erd-entity show-nullability="true" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="pc348e59976954da58d7527d4b6f72087_868731285" name="LNW_Python_UserData" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="0,-180">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>09/02/2022 09:17:25</creation-date>
+          <change-date>09/02/2022 10:22:31</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="df5b5793227f44bf9f8ee5ca21410dfe" cid="PROP006" type="property" name="firstname" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:18:16" visibility="private">
+            <feature />
+            <structural-feature type="string" type-id="string" />
+            <property />
+          </item>
+          <item id="0eee8615aac542e5999e98071b4cb860" cid="PROP009" type="property" name="street" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:18:43" visibility="private">
+            <feature />
+            <structural-feature type="string" type-id="string" />
+            <property />
+          </item>
+          <item id="051b0e60f0ce46d4ad9ae3aaf71ccfcb" cid="C003" type="class" name="UserDataSchema(Schema)" style-class="" change-tracking-state="added" creator="" creation-date="09/02/2022 10:22:31">
+            <owned-items>
+              <owned-item ref="994bc8a2c04642d7a9789015c14895f6" />
+              <owned-item ref="8af7fff8626a41f98f7ea782b89e1bfe" />
+              <owned-item ref="311742b9f9324604b0dd66ac2cab6d88" />
+              <owned-item ref="d79770298e694292a2d6a0aaf4f59597" />
+              <owned-item ref="944c8b367f21439e9c197932a30ae833" />
+              <owned-item ref="cf00e390c304421d98ab849a5c033d3a" />
+            </owned-items>
+            <attributes>
+              <attribute id="a10d1855698414d60bc25203ec39bd5f3761" cid="PROP011" name="id" creation-date="09/02/2022 10:22:52" property-ref="994bc8a2c04642d7a9789015c14895f6" />
+              <attribute id="af3f5e2936f0b427d8d26a90ae5c67d2f823" cid="PROP012" name="firstname" creation-date="09/02/2022 10:23:09" property-ref="8af7fff8626a41f98f7ea782b89e1bfe" />
+              <attribute id="a7fed7564a36c494491b1fbf3a364683e708" cid="PROP013" name="lastname" creation-date="09/02/2022 10:23:23" property-ref="311742b9f9324604b0dd66ac2cab6d88" />
+              <attribute id="ad2df6d6333a845e8ade1bc58c2e96456894" cid="PROP014" name="city" creation-date="09/02/2022 10:23:35" property-ref="d79770298e694292a2d6a0aaf4f59597" />
+              <attribute id="a8a4ceb2733944eeb9ffc3275a107344e166" cid="PROP015" name="street" creation-date="09/02/2022 10:24:02" property-ref="944c8b367f21439e9c197932a30ae833" />
+              <attribute id="a5c184e862507424dbe036e49dab4c8dd111" cid="PROP016" name="bdate" creation-date="09/02/2022 10:24:16" property-ref="cf00e390c304421d98ab849a5c033d3a" />
+            </attributes>
+            <operations>
+              <operation id="o9dea2f03b2d849489d5c9e07e99a1c95286" cid="OP018" name="get_all_userdata" creation-date="09/02/2022 10:24:27" type="" type-id="" visibility="public" />
+              <operation id="o54bfb05642e8496cb229428031674967335" cid="OP019" name="create_userdata" creation-date="09/02/2022 10:24:54" type="" type-id="" visibility="public" />
+              <operation id="ob3accd4b7a5f4d0e8dfdec9558d7897b813" cid="OP020" name="get_userdata" creation-date="09/02/2022 10:25:10" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p992228be32264be7a1bbdf9540ee8164" name="id" type="" type-id="" />
+                </parameters>
+              </operation>
+              <operation id="of8fc428aa6aa454c9bd53cb0d0b93be125" cid="OP021" name="delete_userdata" creation-date="09/02/2022 10:25:33" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="pe9589cb1e51240d6998b1ce31a9e4dce" name="id" type="" type-id="" />
+                </parameters>
+              </operation>
+            </operations>
+          </item>
+          <item id="eb23a00d948f448399eca1044238550a" cid="PROP005" type="property" name="id" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:17:45" visibility="private">
+            <feature />
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+            <property />
+          </item>
+          <item id="cf00e390c304421d98ab849a5c033d3a" cid="PROP016" type="property" name="bdate" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:24:16" visibility="private">
+            <feature />
+            <structural-feature type="fields.bdate" type-id="fields.bdate" />
+            <property />
+          </item>
+          <item id="a3e146209e374d789760def4a6ab2449" cid="C002" type="class" name="UserData	" style-class="" change-tracking-state="added" creator="" creation-date="09/02/2022 10:17:22">
+            <owned-items>
+              <owned-item ref="eb23a00d948f448399eca1044238550a" />
+              <owned-item ref="df5b5793227f44bf9f8ee5ca21410dfe" />
+              <owned-item ref="acf98af3eaa342ea904ec6147e1c1ffd" />
+              <owned-item ref="dc3228a4104e4eb2b92720aca12752e5" />
+              <owned-item ref="0eee8615aac542e5999e98071b4cb860" />
+              <owned-item ref="80ae722066b7430e99052077a8cc0016" />
+            </owned-items>
+            <attributes>
+              <attribute id="adfb9045ca7054c54a13ae914da7519a5945" cid="PROP005" name="id" creation-date="09/02/2022 10:17:45" property-ref="eb23a00d948f448399eca1044238550a" />
+              <attribute id="a725323cf41e14d74ba43b0ede4278ca7385" cid="PROP006" name="firstname" creation-date="09/02/2022 10:18:16" property-ref="df5b5793227f44bf9f8ee5ca21410dfe" />
+              <attribute id="a30b042f488b04a0cacaa8d219c1f560b37" cid="PROP007" name="lastname" creation-date="09/02/2022 10:18:31" property-ref="acf98af3eaa342ea904ec6147e1c1ffd" />
+              <attribute id="a7647bf20cd114c4391ac620bdb1da75967" cid="PROP008" name="city" creation-date="09/02/2022 10:18:37" property-ref="dc3228a4104e4eb2b92720aca12752e5" />
+              <attribute id="af8249186f43548fb89d1426a3dc5ac54723" cid="PROP009" name="street" creation-date="09/02/2022 10:18:43" property-ref="0eee8615aac542e5999e98071b4cb860" />
+              <attribute id="a2a683dc7e3994823a098ba007e818b00336" cid="PROP010" name="bdate" creation-date="09/02/2022 10:18:49" property-ref="80ae722066b7430e99052077a8cc0016" />
+            </attributes>
+            <operations>
+              <operation id="o9dc20545b83c40958e35271b7e3912bb574" cid="OP013" name="__repr__" creation-date="09/02/2022 10:20:00" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p06bc7c65de7844b48137446f26f96dd2" name="self" type="" type-id="" />
+                </parameters>
+              </operation>
+              <operation id="ocf95f2c72107421bbe2e1b5baa511ff7626" cid="OP014" name="get_all" creation-date="09/02/2022 10:20:44" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p7cbbc907115840c29dfe2c03cbbe2459" name="cls" type="" type-id="" />
+                </parameters>
+              </operation>
+              <operation id="o5d20dbbb763945bc8c7a5771cb391f7752" cid="OP015" name="get_by_id" creation-date="09/02/2022 10:20:59" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="pcba9bc35d7f04c259866649e0bf93616" name="cls" type="" type-id="" />
+                  <parameter id="pc889dcbe92a0482fa85c3a3306f4cb5b" name="id" type="" type-id="" />
+                </parameters>
+              </operation>
+              <operation id="oca32e196afd24078b036f4db8f84955a915" cid="OP016" name="save" creation-date="09/02/2022 10:21:16" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p90cb28d380c64301914710b3e2016180" name="self" type="" type-id="" />
+                </parameters>
+              </operation>
+              <operation id="o815d1cf5376b48328d5a0852ba00ebad946" cid="OP017" name="delete" creation-date="09/02/2022 10:21:37" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p682c287b1d0f4ed6b80708208cf7a1a7" name="self" type="" type-id="" />
+                </parameters>
+              </operation>
+            </operations>
+          </item>
+          <item id="311742b9f9324604b0dd66ac2cab6d88" cid="PROP013" type="property" name="lastname" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:23:23" visibility="private">
+            <feature />
+            <structural-feature type="fields.lastname" type-id="fields.lastname" />
+            <property />
+          </item>
+          <item id="dc3228a4104e4eb2b92720aca12752e5" cid="PROP008" type="property" name="city" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:18:37" visibility="private">
+            <feature />
+            <structural-feature type="string" type-id="string" />
+            <property />
+          </item>
+          <item id="d79770298e694292a2d6a0aaf4f59597" cid="PROP014" type="property" name="city" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:23:35" visibility="private">
+            <feature />
+            <structural-feature type="fields.city" type-id="fields.city" />
+            <property />
+          </item>
+          <item id="8af7fff8626a41f98f7ea782b89e1bfe" cid="PROP012" type="property" name="firstname" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:23:09" visibility="private">
+            <feature />
+            <structural-feature type="fields.firstname" type-id="fields.firstname" />
+            <property />
+          </item>
+          <item id="acf98af3eaa342ea904ec6147e1c1ffd" cid="PROP007" type="property" name="lastname" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:18:31" visibility="private">
+            <feature />
+            <structural-feature type="string" type-id="string" />
+            <property />
+          </item>
+          <item id="944c8b367f21439e9c197932a30ae833" cid="PROP015" type="property" name="street" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:24:02" visibility="private">
+            <feature />
+            <structural-feature type="fields.street" type-id="fields.street" />
+            <property />
+          </item>
+          <item id="994bc8a2c04642d7a9789015c14895f6" cid="PROP011" type="property" name="id" style-class="" owner="051b0e60f0ce46d4ad9ae3aaf71ccfcb" creator="" creation-date="09/02/2022 10:22:52" visibility="private">
+            <feature />
+            <structural-feature type="fields.integer" type-id="fields.integer" />
+            <property />
+          </item>
+          <item id="80ae722066b7430e99052077a8cc0016" cid="PROP010" type="property" name="bdate" style-class="" owner="a3e146209e374d789760def4a6ab2449" creator="" creation-date="09/02/2022 10:18:49" visibility="private">
+            <feature />
+            <structural-feature type="string" type-id="string" />
+            <property />
+          </item>
+        </abstract-items>
+        <layer id="b1e5cec19b3541f1bbddd7f6c58ee083" name="Default" visible="true" enabled="true" locked="false">
+          <item id="a3e146209e374d789760def4a6ab2449" iid="df2df78b75f74b228ed6d0dd9b1999a9" creation-date="09/02/2022 10:17:22" order-index="0" type="entity">
+            <layout ax="60" ay="-89" awidth="139" aheight="271" x="60" y="-89" width="139" height="271" rotation-center="0.5,-55.5" />
+            <classifier />
+            <class />
+          </item>
+          <item id="051b0e60f0ce46d4ad9ae3aaf71ccfcb" iid="2b93d5ab90a1407caac53b989ce63a2d" creation-date="09/02/2022 10:22:31" order-index="1" type="entity">
+            <layout ax="344" ay="-38" awidth="262" aheight="271" x="400" y="73" width="262" height="271" rotation-center="28,55.5" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

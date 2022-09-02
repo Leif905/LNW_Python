@@ -1,11 +1,11 @@
 from crypt import methods
 import PySimpleGUI as sg
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema,fields
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/data'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/userdata'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 # street
 # bdate
 
-class Data(db.Model):
+class UserData(db.Model):
     id=db.Column(db.Integer(), primary_key=True)
     firstname=db.Column(db.String(40),nullable=False)
     lastname=db.Column(db.String(40),nullable=False)
@@ -44,34 +44,43 @@ class Data(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-class CitySchema(Schema):
+class UserDataSchema(Schema):
     id=fields.Integer()
-    name=fields.String()
+    firstname=fields.String()
+    lastname=fields.String()
+    city=fields.String()
     street=fields.String()
+    bdate=fields.String()
 
 
-@app.route('/data', methods=['GET'])
-def get_all_data():
-    data=Data.get_all()
+@app.route('/userdata', methods=['GET'])
+def get_all_userdata():
+    userdata=UserData.get_all()
 
-    serializer=CitySchema()
+    serializer=UserDataSchema()
 
-    data=serializer.dump(data)
+    data=serializer.dump(userdata)
 
-@app.route('/data', methods=['POST'])
-def create_data():
+    return jsonify(
+        
+    )
+
+
+
+@app.route('/userdata', methods=['POST'])
+def create_userdata():
     pass
 
-@app.route('/data/<int:id>', methods=['GET'])
-def get_data(id):
+@app.route('/userdata/<int:id>', methods=['GET'])
+def get_userdata(id):
     pass
 
-@app.route('/data/<int:id>', methods=['PUT'])
-def update_data(id):
+@app.route('/userdata/<int:id>', methods=['PUT'])
+def update_userdata(id):
     pass
 
-@app.route('/data/<int:id>', methods=['DELETE'])
-def delete_data(id):
+@app.route('/userdata/<int:id>', methods=['DELETE'])
+def delete_userdata(id):
     pass
 
 if __name__== '__main__':
