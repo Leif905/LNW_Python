@@ -70,15 +70,61 @@ def get_all_userdata():
 def create_userdata():
     data=request.get_json()
 
-    new_userdata=UserData()
+    new_userdata=UserData(
+        firstname=data.get('firstname'),
+        lastname=data.get('lastname'),
+        city=data.get('city'),
+        street=data.get('street'),
+        bdate=data.get('bdate')
+
+    )
+
+    new_userdata.save()
+
+    serializer=UserDataSchema()
+
+    data=serializer.dump(new_userdata)
+
+    return jsonify(
+        data
+    ),201
 
 @app.route('/userdata/<int:id>', methods=['GET'])
 def get_userdata(id):
-    pass
+    userdata=UserData.get_by_id(id)
 
+    serializer=UserDataSchema()
+
+    data=serializer.dump(userdata)
+
+    return jsonify(
+        data
+    ),200
+
+    
 @app.route('/userdata/<int:id>', methods=['PUT'])
 def update_userdata(id):
-    pass
+    data=request.get_json()
+
+    userdata_to_update=UserData.get_by_id(id)
+    
+
+    
+
+    userdata_to_update.data.get('firstname')
+    userdata_to_update.data.get('lastname')
+    userdata_to_update.data.get('city')
+    userdata_to_update.data.get('street')
+    userdata_to_update.data.get('bdate')
+
+    db.session.commit()
+
+    serializer=UserDataSchema()
+
+    userdata_data=serializer.dump(userdata_to_update)
+
+    return jsonify(userdata_data),200
+
 
 @app.route('/userdata/<int:id>', methods=['DELETE'])
 def delete_userdata(id):
