@@ -102,20 +102,21 @@ def get_userdata(id):
     ),200
 
     
+
 @app.route('/userdata/<int:id>', methods=['PUT'])
 def update_userdata(id):
-    data=request.get_json()
+    
 
     userdata_to_update=UserData.get_by_id(id)
-    
+    data=request.get_json()
 
     
 
-    userdata_to_update.data.get('firstname')
-    userdata_to_update.data.get('lastname')
-    userdata_to_update.data.get('city')
-    userdata_to_update.data.get('street')
-    userdata_to_update.data.get('bdate')
+    userdata_to_update.firstname = data.get('firstname')
+    userdata_to_update.lastname =  data.get('lastname')
+    userdata_to_update.city = data.get('city')
+    userdata_to_update.street= data.get('street')
+    userdata_to_update.bdate = data.get('bdate')
 
     db.session.commit()
 
