@@ -129,7 +129,20 @@ def update_userdata(id):
 
 @app.route('/userdata/<int:id>', methods=['DELETE'])
 def delete_userdata(id):
-    pass
+    userdata_to_delete=UserData.get_by_id(id)
+
+    userdata_to_delete.delete()
+
+    return jsonify({"message":"Deleted"}),204
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({"message":"Resource not found"}),404
+
+@app.errorhandler(500)
+def internal_server(error):
+    return jsonify({"message":"There is a problem"}),500
 
 if __name__== '__main__':
     app.run(debug=True)
