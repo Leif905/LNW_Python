@@ -1,6 +1,7 @@
 from flask import Flask, json,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
+import PySimpleGUI as sg
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:1234@localhost/userdata'
@@ -8,13 +9,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
 
-# Klasse UserData für die Nutzerdaten
-# id
-# firstname
-# lastname
-# city
-# street
-# bdate
+""" Class with the attributes for firstname, lastname, city, street and birthdate
+"""
 
 class UserData(db.Model):
     id=db.Column(db.Integer(), primary_key=True)
@@ -54,6 +50,8 @@ class UserDataSchema(Schema):
 
 @app.route('/userdata', methods=['GET'])
 def get_all_userdata():
+    """gets all userdata from the db
+    """
     userdata=UserData.get_all()
 
     serializer=UserDataSchema(many=True)
@@ -68,6 +66,8 @@ def get_all_userdata():
 
 @app.route('/userdata', methods=['POST'])
 def create_userdata():
+    """creates a new dataset and commits it to the db
+    """
     data=request.get_json()
 
     new_userdata=UserData(
@@ -91,6 +91,8 @@ def create_userdata():
 
 @app.route('/userdata/<int:id>', methods=['GET'])
 def get_userdata(id):
+    """gets userdata by <id>
+    """
     userdata=UserData.get_by_id(id)
 
     serializer=UserDataSchema()
@@ -105,6 +107,8 @@ def get_userdata(id):
 
 @app.route('/userdata/<int:id>', methods=['PUT'])
 def update_userdata(id):
+    """updates userdata by <id>
+    """
     
 
     userdata_to_update=UserData.get_by_id(id)
@@ -122,13 +126,15 @@ def update_userdata(id):
 
     serializer=UserDataSchema()
 
-    userdata_data=serializer.dump(userdata_to_update)
+    userdata_update=serializer.dump(userdata_to_update)
 
-    return jsonify(userdata_data),200
+    return jsonify(userdata_update),200
 
 
 @app.route('/userdata/<int:id>', methods=['DELETE'])
 def delete_userdata(id):
+    """ deletes userdata by <id>
+    """
     userdata_to_delete=UserData.get_by_id(id)
 
     userdata_to_delete.delete()
