@@ -38,3 +38,7 @@ Ssali Jonathan: Build a REST API with Flask, Marshmallow and PostgreSQL
 https://www.youtube.com/watch?v=EAokwpPMVdc&t=327s&ab_channel=SsaliJonathan
 Lumary: Flask app with PostgreSQL
 https://www.youtube.com/watch?v=XZ_gAWdGzZk&ab_channel=Lumary
+Using Databases With TKinter - Python Tkinter GUI Tutorial #19
+https://www.youtube.com/watch?v=YR3h2CY21-U&list=PLCC34OHNcOtoC6GglhF3ncJ5rLwQrLGnV&index=19&ab_channel=Codemy.com
+Building Out The GUI for our Database App - Python Tkinter GUI Tutorial #20
+https://www.youtube.com/watch?v=AK1J8xF4fuk&ab_channel=Codemy.com
