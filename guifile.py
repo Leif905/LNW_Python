@@ -30,7 +30,7 @@ def submit():
 
     conn.close()
 
-    # Clears the Text Boxes after submitting
+    # Clears the Text Boxes after 
     firstname.delete(0, END)
     lastname.delete(0, END)
     city.delete(0, END)
