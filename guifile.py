@@ -37,6 +37,35 @@ def submit():
     street.delete(0, END)
     bdate.delete(0, END)
 
+# Create Query Function
+def query():
+    conn = psycopg2.connect(
+                       host="localhost",
+                       database="lnwgui",
+                       user="postgres",
+                       password="1234",
+                       port="5432" )
+
+    c = conn.cursor()
+
+    # Query the DB
+    c.execute("SELECT * FROM userdata")
+    records = c.fetchall()
+    print(records)
+
+    # Loop trough Results
+
+    print_records = ''
+    for record in records:
+        print_records += str(record[1]) + " " + str(record[2]) + "\n"
+
+    query_label = Label(root, text=print_records)
+    query_label.grid(row=8, column=0, columnspan=2)
+
+    conn.commit()
+
+    conn.close()
+
 # Create Text Boxes
 firstname = Entry(root, width=30)
 firstname.grid(row=0, column=1, padx=20)
@@ -65,5 +94,9 @@ bdate_label.grid(row=4, column=0)
 # Create submit button
 submit_btn = Button(root, text="Add Record to DB", command=submit)
 submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
+
+# Create a Query Button
+query_btn = Button(root, text="Show Records", command=query)
+query_btn.grid(row=7, column=0, columnspan=2, pady=10, padx=10, ipadx=110)
 
 root.mainloop()
