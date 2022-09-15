@@ -11,8 +11,9 @@ root.geometry("400x400")
 
 # Create Submit Function for DB
 def submit():
-    conn = psycopg2.connect(database="userdata",
+    conn = psycopg2.connect(
                        host="localhost",
+                       database="lnwgui",
                        user="postgres",
                        password="1234",
                        port="5432" )
@@ -20,7 +21,7 @@ def submit():
     c = conn.cursor()
 
     # Insert into Table
-    c.execute("INSERT INTO database VALUES (:firstname, :lastname, :city, :street, :bdate)",
+    c.execute("INSERT INTO userdata VALUES (firstname, lastname, city, street, bdate)",
             {
                 'firstname': firstname.get(),
                 'lastname': lastname.get(),
@@ -68,3 +69,5 @@ bdate_label.grid(row=4, column=0)
 # Create submit button
 submit_btn = Button(root, text="Add Record to DB", command=submit)
 submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
+
+root.mainloop()
