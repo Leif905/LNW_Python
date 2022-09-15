@@ -20,21 +20,17 @@ def submit():
 
     c = conn.cursor()
 
-    # Insert into Table
-    c.execute("INSERT INTO userdata VALUES (firstname, lastname, city, street, bdate)",
-            {
-                'firstname': firstname.get(),
-                'lastname': lastname.get(),
-                'city': city.get(),
-                'street': street.get(),
-                'bdate:': bdate.get()
-            })
+    # Insert a new User into the DB
+    c.execute(
+        f"INSERT INTO userdata (firstname, lastname, city, street, bdate) VALUES ('{firstname.get()}', '{lastname.get()}', '{city.get()}', '{street.get()}', '{bdate.get()}')"
+    )
+            
 
     conn.commit()
 
     conn.close()
 
-    # Clear The Text Boxes
+    # Clears the Text Boxes after submitting
     firstname.delete(0, END)
     lastname.delete(0, END)
     city.delete(0, END)
