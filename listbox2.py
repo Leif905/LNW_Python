@@ -9,9 +9,24 @@ root.geometry("400x400")
 my_listbox = Listbox(root)
 my_listbox.pack(pady=15)
 
-# Create Query Function
-def query():
+class UserEntry:
+    def __init__(self, id, firstname, lastname, city, street, bdate):
+        self.id = id
+        self.firstname = firstname
+        self.lastname = lastname
+        self.city = city
+        self.street = street
+        self.bdate = bdate
+
+    def fullname(self): 
+        return f'{self.firstname} {self.lastname}'
+
+# Add list of items
+my_list = []
+
+def user_entry_obj():
     try:
+
         conn = psycopg2.connect(
                         host="localhost",
                         database="lnwgui",
@@ -21,40 +36,21 @@ def query():
 
         c = conn.cursor()
 
-        # Query the DB
         c.execute("SELECT * FROM userdata")
         records = c.fetchall()
 
-        # Loop trough Results
 
-        new_list = []
-        for record in records:
-            new_list.append(str(record[0]) + " " + str(record[1]) + " " + str(record[2]))
-        return new_list
-        
-        # conn.commit()
+        for i in records:
+            # myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
+            # my_list.append(myObj)
+            print(i)
+            
+            
     finally:
-        conn.close()
+        c.close()   
 
-# Add list of items
-my_list = []
-
-# TODO
-# id aus query als Position an .insert übergeben!!!
-
-# for x in query():
-#     print(x[0])
-#     print((x[1:]).lstrip())
     
-
-for x in query():
-##    # my_list.append(x)
-    my_listbox.insert((x[0]), (x[1:]).lstrip())
-
-
-# for item in my_list:
-#      my_listbox.insert(END, item)
+user_entry_obj()
+           
     
-
-
 root.mainloop()
