@@ -39,15 +39,22 @@ def query():
 # Add list of items
 my_list = []
 
+# TODO
+# id aus query als Position an .insert übergeben!!!
+
+# for x in query():
+#     print(x[0])
+#     print((x[1:]).lstrip())
+    
+
 for x in query():
-    # my_list.append(x)
-    my_listbox.insert(END, x)
+##    # my_list.append(x)
+    my_listbox.insert((x[0]), (x[1:]).lstrip())
 
 
 # for item in my_list:
 #      my_listbox.insert(END, item)
     
-print(my_listbox)
 
 
 root.mainloop()
