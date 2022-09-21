@@ -7,10 +7,12 @@ Firstname = Label(root, text="Firstname")
 Firstname.pack()
 firstname = Entry(root, width=50)
 firstname.pack()
+firstname.insert(0, "Biggus")
 Lastname = Label(root, text="Lastname")
 Lastname.pack()
 lastname = Entry(root, width=50)
 lastname.pack()
+lastname.insert(0, "Dickus")
 City = Label(root, text="City")
 City.pack()
 city = Entry(root, width=50)
@@ -31,9 +33,6 @@ def myClick():
 
 btnNewUserEntry = Button(root, text="New User Entry", command=myClick)
 btnNewUserEntry.pack()
-
-def entryCancel():
-    pass
 
 btnEntryCancel = Button(root, text="Cancel", command=root.destroy)
 btnEntryCancel.pack()
