@@ -18,7 +18,7 @@ class UserEntry:
         self.street = street
         self.bdate = bdate
 
-    def fullname(self): 
+    def __str__(self): 
         return f'{self.firstname} {self.lastname}'
 
 # Add list of items
@@ -41,16 +41,19 @@ def user_entry_obj():
 
 
         for i in records:
-            # myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
-            # my_list.append(myObj)
-            print(i)
+            myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
+        
+            my_list.append(myObj)
             
             
     finally:
-        c.close()   
+        c.close()
 
     
 user_entry_obj()
-           
+
+
+for i in my_list:
+    my_listbox.insert(END, i)
     
 root.mainloop()
