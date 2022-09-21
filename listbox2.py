@@ -20,11 +20,14 @@ class UserEntry:
 
     def __str__(self): 
         return f'{self.firstname} {self.lastname}'
+    # einarbeiten
+    def __dict__(self):
+        return {"ID": self.id, "Firstname": self.firstname, "Lastname": self.lastname, "City": self.city, "Street": self.street, "Birthdate": self.bdate}
 
 # Add list of items
-my_list = []
 
-def user_entry_obj():
+
+def get_user_entries():
     try:
 
         conn = psycopg2.connect(
@@ -39,18 +42,21 @@ def user_entry_obj():
         c.execute("SELECT * FROM userdata")
         records = c.fetchall()
 
-
+        temp_list = []
         for i in records:
             myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
-        
-            my_list.append(myObj)
+            print(myObj.__dict__())
+            temp_list.append(myObj)
+           
+        return temp_list
             
             
     finally:
         c.close()
 
+
     
-user_entry_obj()
+my_list = get_user_entries()
 
 
 for i in my_list:
