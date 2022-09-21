@@ -10,7 +10,7 @@ my_listbox = Listbox(root)
 my_listbox.pack(pady=15)
 
 class UserEntry:
-    def __init__(self, id, firstname, lastname, city, street, bdate):
+    def __init__(self, id, firstname, lastname, city, street, bdate) -> None:
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
@@ -18,16 +18,16 @@ class UserEntry:
         self.street = street
         self.bdate = bdate
 
-    def __str__(self): 
+    def __str__(self) -> str: 
         return f'{self.firstname} {self.lastname}'
-    # einarbeiten
+
     def __dict__(self):
         return {"ID": self.id, "Firstname": self.firstname, "Lastname": self.lastname, "City": self.city, "Street": self.street, "Birthdate": self.bdate}
 
 # Add list of items
 
 
-def get_user_entries():
+def get_user_entries() -> list:
     try:
 
         conn = psycopg2.connect(
