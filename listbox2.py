@@ -9,6 +9,7 @@ root.geometry("400x400")
 my_listbox = Listbox(root)
 my_listbox.pack(pady=15)
 
+# UserEntry Class for Data from DB
 class UserEntry:
     def __init__(self, id, firstname, lastname, city, street, bdate) -> None:
         self.id = id
@@ -18,15 +19,16 @@ class UserEntry:
         self.street = street
         self.bdate = bdate
 
+    # StringOverride to display Firstname and Lastname in Listbox
     def __str__(self) -> str: 
         return f'{self.firstname} {self.lastname}'
 
+    # __dict__ to assign Keys and Values
     def __dict__(self):
         return {"ID": self.id, "Firstname": self.firstname, "Lastname": self.lastname, "City": self.city, "Street": self.street, "Birthdate": self.bdate}
 
-# Add list of items
 
-
+# Create Object with Data from DB
 def get_user_entries() -> list:
     try:
 
@@ -55,10 +57,10 @@ def get_user_entries() -> list:
         c.close()
 
 
-    
+# Create a list with the Objects containing the Data from DB   
 my_list = get_user_entries()
 
-
+# Fill the Listbox 
 for i in my_list:
     my_listbox.insert(END, i)
     
