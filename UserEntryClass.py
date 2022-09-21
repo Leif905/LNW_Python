@@ -1,13 +1,4 @@
 import psycopg2
-from tkinter import *
-
-root = Tk()
-root.title('Listbox GUI')
-root.geometry("400x400")
-
-# Listbox!
-my_listbox = Listbox(root)
-my_listbox.pack(pady=15)
 
 # UserEntry Class for Data from DB
 class UserEntry:
@@ -47,7 +38,6 @@ def get_user_entries() -> list:
         temp_list = []
         for i in records:
             myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
-            print(myObj.__dict__())
             temp_list.append(myObj)
            
         return temp_list
@@ -55,13 +45,3 @@ def get_user_entries() -> list:
             
     finally:
         c.close()
-
-
-# Create a list with the Objects containing the Data from DB   
-my_list = get_user_entries()
-
-# Fill the Listbox 
-for i in my_list:
-    my_listbox.insert(END, i)
-    
-root.mainloop()

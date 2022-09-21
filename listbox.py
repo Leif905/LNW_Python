@@ -1,53 +1,87 @@
-import psycopg2
 from tkinter import *
+from UserEntryClass import get_user_entries
 
 root = Tk()
 root.title('Listbox GUI')
-root.geometry("400x400")
+root.geometry("200x200")
 
 # Listbox!
 my_listbox = Listbox(root)
 my_listbox.pack(pady=15)
 
-# Create Query Function
-def query():
-    try:
-        conn = psycopg2.connect(
-                        host="localhost",
-                        database="lnwgui",
-                        user="postgres",
-                        password="1234",
-                        port="5432" )
+# Create a list with the Objects containing the Data from DB   
+my_list = get_user_entries()
 
-        c = conn.cursor()
+# Fill the Listbox 
+for i in my_list:
+    my_listbox.insert(END, i)
 
-        # Query the DB
-        c.execute("SELECT * FROM userdata")
-        records = c.fetchall()
-
-        # Loop trough Results
-
-        new_list = []
-        for record in records:
-            new_list.append(str(record[0]) + " " + str(record[1]) + " " + str(record[2]))
-        return new_list
-        
-        # conn.commit()
-    finally:
-        conn.close()
-
-# Add list of items
-my_list = []
-
-for x in query():
-    # my_list.append(x)
-    my_listbox.insert(END, x)
-
-
-# for item in my_list:
-#      my_listbox.insert(END, item)
-    
-print(my_listbox)
-
+my_listbox.select_set(0)
 
 root.mainloop()
+
+
+
+# # UserEntry Class for Data from DB
+# class UserEntry:
+#     def __init__(self, id, firstname, lastname, city, street, bdate) -> None:
+#         self.id = id
+#         self.firstname = firstname
+#         self.lastname = lastname
+#         self.city = city
+#         self.street = street
+#         self.bdate = bdate
+
+#     # StringOverride to display Firstname and Lastname in Listbox
+#     def __str__(self) -> str: 
+#         return f'{self.firstname} {self.lastname}'
+
+#     # __dict__ to assign Keys and Values
+#     def __dict__(self):
+#         return {"ID": self.id, "Firstname": self.firstname, "Lastname": self.lastname, "City": self.city, "Street": self.street, "Birthdate": self.bdate}
+
+
+# # Create Object with Data from DB
+# def get_user_entries() -> list:
+#     try:
+
+#         conn = psycopg2.connect(
+#                         host="localhost",
+#                         database="lnwgui",
+#                         user="postgres",
+#                         password="1234",
+#                         port="5432" )
+
+#         c = conn.cursor()
+
+#         c.execute("SELECT * FROM userdata")
+#         records = c.fetchall()
+
+#         temp_list = []
+#         for i in records:
+#             myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
+#             temp_list.append(myObj)
+           
+#         return temp_list
+            
+            
+#     finally:
+#         c.close()
+
+
+
+
+    
+
+
+# def select():
+#     my_label.config(text=my_listbox.get(ANCHOR))
+#     my_temp = my_listbox.get(ANCHOR)
+#     print(type(my_temp))
+
+# my_button = Button(root, text="Select", command=select)
+# my_button.pack(pady=10)
+
+# global my_label
+# my_label = Label(root, text='')
+# my_label.pack(pady=5)
