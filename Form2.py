@@ -1,3 +1,4 @@
+from turtle import left
 import psycopg2
 from tkinter import *
 from UserEntryClass import UserEntry, get_user_entries
@@ -79,14 +80,14 @@ def get_id():
 
 
 
-btnEntryCancel = Button(root, text="Cancel", command=root.destroy)
-btnEntryCancel.pack()
+btnEntryCancel = Button(root, text="Cancel",command=root.destroy)
+btnEntryCancel.pack(side=RIGHT, padx=0, pady=0)
 
 btnNewDBEntry = Button(root, text="New DB Entry", command=myClickDB)
-btnNewDBEntry.pack()
+btnNewDBEntry.pack(side=LEFT)
 
 btnGetID = Button(root, text="GetID", command=get_id)
-btnGetID.pack()
+btnGetID.place(x=240, y=180)
 
 
 root.mainloop()

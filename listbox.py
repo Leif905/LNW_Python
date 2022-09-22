@@ -18,6 +18,17 @@ for i in my_list:
 
 my_listbox.select_set(0)
 
+def items_selected():
+    # get all selected indices
+    my_listbox.curselection()
+    print(my_listbox.curselection())
+
+
+
+
+btnGetID = Button(root, text="GetID", command=items_selected)
+btnGetID.pack()
+
 root.mainloop()
 
 
