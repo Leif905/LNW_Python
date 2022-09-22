@@ -1,5 +1,6 @@
+import psycopg2
 from tkinter import *
-from UserEntryClass import UserEntry
+from UserEntryClass import UserEntry, get_user_entries
 
 root = Tk()
 
@@ -7,12 +8,10 @@ Firstname = Label(root, text="Firstname")
 Firstname.pack()
 firstname = Entry(root, width=50)
 firstname.pack()
-firstname.insert(0, "Biggus")
 Lastname = Label(root, text="Lastname")
 Lastname.pack()
 lastname = Entry(root, width=50)
 lastname.pack()
-lastname.insert(0, "Dickus")
 City = Label(root, text="City")
 City.pack()
 city = Entry(root, width=50)
@@ -25,16 +24,69 @@ Bdate = Label(root, text="Birthdate")
 Bdate.pack()
 bdate = Entry(root, width=50)
 bdate.pack()
+    
 
 def myClick():
 
-    newUserEntry = UserEntry('', firstname.get(), lastname.get(), city.get(), street.get(), bdate.get())
-    print(newUserEntry.street)
+    newUserEntry = UserEntry(NONE, firstname.get(), lastname.get(), city.get(), street.get(), bdate.get())
+    print(newUserEntry)
+    
+    
+def myClickDB():
 
-btnNewUserEntry = Button(root, text="New User Entry", command=myClick)
-btnNewUserEntry.pack()
+    newUserEntry = UserEntry(NONE, firstname.get(), lastname.get(), city.get(), street.get(), bdate.get())
+    input = (newUserEntry.firstname, newUserEntry.lastname, newUserEntry.city, newUserEntry.street, newUserEntry.bdate)
+    try:
+
+        conn = psycopg2.connect(
+                        host="localhost",
+                        database="lnwgui",
+                        user="postgres",
+                        password="1234",
+                        port="5432" )
+
+        c = conn.cursor()
+        c.execute(f'INSERT INTO userdata (firstname, lastname, city, street, bdate) VALUES {input}')
+        conn.commit()
+            
+
+    finally:
+        c.close()
+        conn.close()
+    
+
+def get_id():
+
+    try:
+
+        conn = psycopg2.connect(
+                        host="localhost",
+                        database="lnwgui",
+                        user="postgres",
+                        password="1234",
+                        port="5432" )
+
+        c = conn.cursor()
+
+        c.execute("SELECT id FROM userdata")
+        records = c.fetchall()
+
+        print(records)
+            
+            
+    finally:
+        c.close()
+
+
 
 btnEntryCancel = Button(root, text="Cancel", command=root.destroy)
 btnEntryCancel.pack()
+
+btnNewDBEntry = Button(root, text="New DB Entry", command=myClickDB)
+btnNewDBEntry.pack()
+
+btnGetID = Button(root, text="GetID", command=get_id)
+btnGetID.pack()
+
 
 root.mainloop()

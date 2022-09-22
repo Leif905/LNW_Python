@@ -1,30 +1,14 @@
-import psycopg2
-from config import config
-# connection = psycopg2.connect(
-#     host="localhost", port="5432", database="master", user="postgres", password="123456")
+import tkinter as tk
+from tkinter import ttk
+from PIL import Image, ImageTk
 
+root = tk.Tk()
+root.geometry("500x300")
 
-def connect():
-    connection = None
-    try:
-        params = config()
-        print('Connecting to the postgreSQL database ...')
-        connection = psycopg2.connect(**params)
+image = Image.open("bfbanner.png").resize((400, 200))
+photo = ImageTk.PhotoImage(image)
 
-        # create a cursor
-        crsr = connection.cursor()
-        print('PostgreSQL database version: ')
-        crsr.execute('SELECT version()')
-        db_version = crsr.fetchone()
-        print(db_version)
-        crsr.close()
-    except(Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if connection is not None:
-            connection.close()
-            print('Database connection terminated.')
+label1 = ttk.Label(root, text="He's no good to me dead", image=photo, compound="top")
+label1.pack()
 
-
-if __name__ == "__main__":
-    connect()
+root.mainloop()
