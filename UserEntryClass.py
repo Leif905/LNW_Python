@@ -39,7 +39,6 @@ def get_user_entries() -> list:
         for i in records:
             myObj = UserEntry(i[0], i[1], i[2], i[3], i[4], i[5])
             temp_list.append(myObj)
-            print(type(i))
             
            
         return temp_list

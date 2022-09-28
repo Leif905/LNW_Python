@@ -25,16 +25,15 @@ for i in records:
     newdbdict = {i[0]: {mylist[1]:i[1], mylist[2]:i[2], mylist[3]:i[3], mylist[4]:i[4], mylist[5]:i[5]}}
     #print(i[0], i[1], i[2], i[3], i[4], i[5])
     dbdict.update(newdbdict)
-
-
-
+    #print(newdbdict)
     
 
-def myprint(dbdict):
-        for k, v in dbdict.items():
-            if isinstance(v, dict):
-                myprint(v)
-            else:
-                print("{0} : {1}".format(k, v))
+# def myprint(dbdict):
+#         for k, v in dbdict.items():
+#             if isinstance(v, dict):
+#                 myprint(v)
+#             else:
+#                 print("{0} : {1}".format(k, v))
 
-myprint(dbdict)
+
+# myprint(dbdict)
