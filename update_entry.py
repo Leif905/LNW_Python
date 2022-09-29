@@ -2,19 +2,20 @@ import psycopg2
 import tkinter as tk
 from config import config
 
-
 def update_entry(user_id):
     root = tk.Tk()
     root.title('LNW - GUI')
     root.geometry("400x400")
 
     
+    
     conn = psycopg2.connect(
-                        host="localhost",
-                        database="lnwgui",
-                        user="postgres",
-                        password="1234",
-                        port="5432" )
+                            host="localhost",
+                            database="lnwgui",
+                            user="postgres",
+                            password="1234",
+                            port="5432" )
+
     
 
     c = conn.cursor()
@@ -75,6 +76,5 @@ def update_entry(user_id):
     # Create a Cancel button
     cancel_btn = tk.Button(root, text="Cancel", command=root.destroy)
     cancel_btn.grid(row=7, column=0)
-
 
     root.mainloop()
