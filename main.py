@@ -1,6 +1,6 @@
 import tkinter as tk
 from fetch_userlist import records
-from new_entry import new_entry
+from new_entry import newentry
 from update_entry import update_entry
 
 
@@ -32,7 +32,7 @@ def selected_item():
              
 
 # Button for a new entry
-new_entry_btn= tk.Button(root, text="New Entry", command=new_entry).pack(side=tk.LEFT)
+new_entry_btn= tk.Button(root, text="New Entry", command=newentry).pack(side=tk.LEFT)
 # Button to update an existing entry
 update_entry_btn= tk.Button(root, text="Update Entry", command=selected_item).pack(side=tk.LEFT)
 
