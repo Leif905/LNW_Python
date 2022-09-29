@@ -1,6 +1,4 @@
 import tkinter as tk
-from tkinter import *
-import tkinter
 from fetch_userlist import records
 from new_entry import new_entry
 from update_entry import update_entry
@@ -19,7 +17,7 @@ index_list = []
 # Fill the Listbox with records from fetchuserlist
 for myentry in records:
     index_list.append(myentry)
-    my_listbox.insert(END, f"{myentry[1]} {myentry[2]}")
+    my_listbox.insert(tk.END, f"{myentry[1]} {myentry[2]}")
 
     my_listbox.select_set(0)
 
@@ -34,8 +32,8 @@ def selected_item():
              
 
 # Button for a new entry
-new_entry_btn= Button(root, text="New Entry", command=new_entry).pack(side=tkinter.LEFT)
+new_entry_btn= tk.Button(root, text="New Entry", command=new_entry).pack(side=tk.LEFT)
 # Button to update an existing entry
-update_entry_btn= Button(root, text="Update Entry", command=selected_item).pack(side=tkinter.LEFT)
+update_entry_btn= tk.Button(root, text="Update Entry", command=selected_item).pack(side=tk.LEFT)
 
 root.mainloop()

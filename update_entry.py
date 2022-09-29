@@ -2,7 +2,6 @@ import psycopg2
 from tkinter import *
 
 
-
 def update_entry(user_id):
     root = Tk()
     root.title('LNW - GUI')
