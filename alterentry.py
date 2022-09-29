@@ -1,13 +1,35 @@
 import psycopg2
 from tkinter import *
 
-def entrymask():
+
+
+def alterentry(user_id):
     root = Tk()
     root.title('LNW - GUI')
     root.geometry("400x400")
 
-    
+    conn = psycopg2.connect(
+                        host="localhost",
+                        database="lnwgui",
+                        user="postgres",
+                        password="1234",
+                        port="5432" )
 
+    c = conn.cursor()
+
+        # Insert a new User into the DB
+    c.execute(
+            f"SELECT firstname, lastname, city, street, bdate FROM userdata WHERE id={user_id}"
+        )
+        
+    active_user = c.fetchall()
+    print(active_user)
+        
+
+         
+                
+
+    conn.commit()
 
     # Create Submit Function for DB
     def submit():
@@ -22,8 +44,13 @@ def entrymask():
 
         # Insert a new User into the DB
         c.execute(
-            f"INSERT INTO userdata (firstname, lastname, city, street, bdate) VALUES ('{firstname.get()}', '{lastname.get()}', '{city.get()}', '{street.get()}', '{bdate.get()}')"
-        )
+                f"UPDATE userdata SET firstname = '{firstname.get()}', lastname = '{lastname.get()}', city = '{city.get()}', street = '{street.get()}', bdate =  '{bdate.get()}' WHERE id={user_id}"
+            )
+        
+        
+        
+
+         
                 
 
         conn.commit()
@@ -31,11 +58,11 @@ def entrymask():
         conn.close()
 
         # Clears the Text Boxes after 
-        firstname.delete(0, END)
-        lastname.delete(0, END)
-        city.delete(0, END)
-        street.delete(0, END)
-        bdate.delete(0, END)
+        # firstname.insert(0, END)
+        # lastname.delete(0, END)
+        # city.delete(0, END)
+        # street.delete(0, END)
+        # bdate.delete(0, END)
 
     # Create Query Function
     def query():
@@ -53,6 +80,8 @@ def entrymask():
         records = c.fetchall()
         print(records)
 
+       
+
         # Loop trough Results
 
         print_records = ''
@@ -66,16 +95,23 @@ def entrymask():
 
         conn.close()
 
+    
+
     # Create Text Boxes
     firstname = Entry(root, width=30)
+    firstname.insert(END, active_user[0][0])
     firstname.grid(row=0, column=1, padx=20)
     lastname = Entry(root, width=30)
+    lastname.insert(END, active_user[0][1])
     lastname.grid(row=1, column=1, padx=20)
     city = Entry(root, width=30)
+    city.insert(END, active_user[0][2])
     city.grid(row=2, column=1, padx=20)
     street = Entry(root, width=30)
+    street.insert(END, active_user[0][3])
     street.grid(row=3, column=1, padx=20)
     bdate = Entry(root, width=30)
+    bdate.insert(END, active_user[0][4])
     bdate.grid(row=4, column=1, padx=20)
 
     # Create Text Box Labels
@@ -92,7 +128,7 @@ def entrymask():
 
 
     # Create submit button
-    submit_btn = Button(root, text="Add Record to DB", command=submit)
+    submit_btn = Button(root, text="Update Entry", command=submit)
     submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
     # Create a Query Button

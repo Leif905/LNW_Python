@@ -12,7 +12,7 @@ c.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =
 namelist = c.fetchall()
 
 
-c.execute("SELECT * FROM userdata")
+c.execute("SELECT * FROM userdata ORDER BY id")
 records = c.fetchall()
 
 
