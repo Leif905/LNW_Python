@@ -39,7 +39,6 @@ def update_entry(user_id):
         conn.close()
 
 
-
     # Create Text Boxes with Values
     firstname = tk.Entry(root, width=30)
     firstname.insert(tk.END, active_user[0][0])
