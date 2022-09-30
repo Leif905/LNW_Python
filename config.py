@@ -1,7 +1,9 @@
 from configparser import ConfigParser
+from pathlib import Path
 
+dbase = Path("LNW_Python", "database.ini")
 
-def config(filename="database.ini", section="postgresql"):
+def config(filename=dbase, section="postgres"):
     # create a parser
     parser = ConfigParser()
     # read config file

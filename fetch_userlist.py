@@ -1,20 +1,12 @@
 import psycopg2
 from config import config
 
+
 def fetch_list():
-    conn = psycopg2.connect(
-                            host="localhost",
-                            database="lnwgui",
-                            user="postgres",
-                            password="1234",
-                            port="5432" )
+    params = config()
+    conn = psycopg2.connect(**params)
 
-    c = conn.cursor()
-
-    # fetches all KEYS
-    c.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ='userdata'")
-    namelist = c.fetchall()
-    
+    c = conn.cursor()    
 
     # fetches all entries, ordered by ID
     c.execute("SELECT * FROM userdata ORDER BY id")

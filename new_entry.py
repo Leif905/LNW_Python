@@ -11,12 +11,8 @@ def newentry():
     # Create Submit Function for DB
     def submit():
         
-        conn = psycopg2.connect(
-                            host="localhost",
-                            database="lnwgui",
-                            user="postgres",
-                            password="1234",
-                            port="5432" )
+        params = config()
+        conn = psycopg2.connect(**params)
 
         c = conn.cursor()
 

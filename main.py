@@ -3,8 +3,6 @@ from fetch_userlist import records
 from new_entry import newentry
 from update_entry import update_entry
 
-
-
 root = tk.Tk()
 root.title('Listbox GUI')
 root.geometry("400x400")
@@ -31,7 +29,6 @@ def selected_item():
     for _ in my_listbox.curselection():
         update_entry((index_list[my_listbox.curselection()[0]])[0])
              
-
 # Button for a new entry
 new_entry_btn= tk.Button(root, text="New Entry", command=newentry).pack(side=tk.LEFT)
 # Button to update an existing entry
