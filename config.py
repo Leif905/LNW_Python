@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 from pathlib import Path
 
-dbase = Path("LNW_Python", "database.ini")
+dbase = Path("LNW_Python", "/home/leif/LNW_Python-1/database.ini")
 
 def config(filename=dbase, section="postgres"):
     # create a parser
