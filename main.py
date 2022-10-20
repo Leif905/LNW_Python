@@ -7,6 +7,11 @@ root = tk.Tk()
 root.title('Listbox GUI')
 root.geometry("400x400")
 
+'''
+sudo apt-get install x11-apps
+export DISPLAY=:0
+'''
+
 my_listbox = tk.Listbox(root)
 my_listbox.pack(fill=tk.BOTH)
 
